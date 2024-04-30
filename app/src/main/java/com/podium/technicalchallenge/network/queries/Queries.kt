@@ -7,6 +7,7 @@ object Queries {
   movies {
     title
     releaseDate
+    posterPath
   }
 }
 """
