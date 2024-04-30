@@ -12,26 +12,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import coil.compose.AsyncImage
 import com.podium.technicalchallenge.R
-import com.podium.technicalchallenge.entity.MovieEntity
 
 @Composable
-internal fun MoviesContent(
-    movies: List<MovieEntity>,
-    onMovieClick: (MovieEntity) -> Unit
+internal fun GenresContent(
+    genres: List<String>,
+    onGenreClick: (String) -> Unit
 ) {
     LazyColumn {
-        items(movies) { movie ->
-            MovieItem(movie, onMovieClick)
+        items(genres) { genre ->
+            GenreItem(genre, onGenreClick)
         }
     }
 }
 
 @Composable
-private fun MovieItem(
-    movie: MovieEntity,
-    onMovieClick: (MovieEntity) -> Unit
+private fun GenreItem(
+    genre: String,
+    onGenreClick: (String) -> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -41,15 +39,10 @@ private fun MovieItem(
                 horizontal = dimensionResource(id = R.dimen.horizontal_margin),
                 vertical = dimensionResource(id = R.dimen.list_item_padding),
             )
-            .clickable { onMovieClick(movie) }
+            .clickable { onGenreClick(genre) }
     ) {
-        AsyncImage(
-            model = movie.posterPath,
-            contentDescription = null,
-        )
-
         Text(
-            text = movie.title,
+            text = genre,
             style = MaterialTheme.typography.h6,
             modifier = Modifier.padding(
                 start = dimensionResource(id = R.dimen.horizontal_margin)
