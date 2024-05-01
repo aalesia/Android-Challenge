@@ -3,4 +3,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="movies_top_5">Movies: Top 5</string>
+    <string name="browse_by_genre">Browse by Genre</string>
+    <string name="browse_by_all">Browse by All</string>
+    <string name="movies">Movies</string>
+    <string name="details">Details</string>
+    <string name="rating">Rating: %1$s</string>
+    <string name="genres">Genres: %1$s</string>
+    <string name="director">Director: %1$s</string>
 </resources>

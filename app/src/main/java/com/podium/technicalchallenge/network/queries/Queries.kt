@@ -9,6 +9,8 @@ object Queries {
             title
             releaseDate
             posterPath
+            voteAverage
+            overview
           }
         }
         """
@@ -16,12 +18,13 @@ object Queries {
     fun getTop5MoviesQuery() =
         """
         query GetTop5MoviesQuery {
-          movies(limit: 5, orderBy: "popularity", sort: DESC) {
+          movies(limit: 5, orderBy: "voteAverage", sort: DESC) {
             id
             title
             releaseDate
-            popularity
             posterPath
+            voteAverage
+            overview
           }
         }
         """
@@ -33,8 +36,9 @@ object Queries {
             id
             title
             releaseDate
-            popularity
             posterPath
+            voteAverage
+            overview
           }
         }
         """
@@ -55,6 +59,19 @@ object Queries {
             releaseDate
             popularity
             posterPath
+            voteAverage
+            overview
+            genres
+            cast {
+                name
+                character
+                order
+                profilePath
+            }
+            director {
+                id
+                name
+            }
           }
         }
         """

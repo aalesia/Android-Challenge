@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class DetailsViewModel : ViewModel() {
-    private val _movie = MutableStateFlow(MovieEntity(0, "", "", ""))
+    private val _movie = MutableStateFlow(MovieEntity(0, "", "", "", 0f, ""))
     val movie: StateFlow<MovieEntity> = _movie
 
     fun getMovie(id: Int) {

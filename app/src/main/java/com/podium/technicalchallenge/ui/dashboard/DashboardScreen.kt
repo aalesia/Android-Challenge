@@ -15,8 +15,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.podium.technicalchallenge.R
 import com.podium.technicalchallenge.viewmodel.DemoViewModel
 import com.podium.technicalchallenge.entity.MovieEntity
 import com.podium.technicalchallenge.ui.navigation.Screen
@@ -29,7 +31,11 @@ import kotlinx.coroutines.launch
 fun DashboardScreen(navController: NavController) {
     val viewModel: DemoViewModel = viewModel()
     val coroutineScope = rememberCoroutineScope()
-    val tabs = listOf("Movies: Top 5", "Browse by Genre", "Browse by All")
+    val tabs = listOf(
+        stringResource(R.string.movies_top_5),
+        stringResource(R.string.browse_by_genre),
+        stringResource(R.string.browse_by_all)
+    )
     val pagerState = rememberPagerState(pageCount = { tabs.size })
     val movies = remember { mutableStateOf(emptyList<MovieEntity>()) }
     val top5Movies = remember { mutableStateOf(emptyList<MovieEntity>()) }
@@ -79,11 +85,14 @@ fun DashboardScreen(navController: NavController) {
 
                 HorizontalPager(state = pagerState) { page ->
                     when (page) {
-                        0, 2 -> MoviesContent(top5Movies.value) { movie ->
+                        0 -> MoviesContent(top5Movies.value) { movie ->
                             navController.navigate(Screen.Details.withId(movie.id))
                         }
                         1 -> GenresContent(genres.value) { genre ->
                             navController.navigate(Screen.Genre.withGenre(genre))
+                        }
+                        2 -> MoviesContent(movies.value) { movie ->
+                            navController.navigate(Screen.Details.withId(movie.id))
                         }
                     }
                 }
@@ -96,7 +105,7 @@ fun DashboardScreen(navController: NavController) {
 fun MoviesAppBar() {
     TopAppBar(
         title = {
-            Text(text = "Movies")
+            Text(text = stringResource(R.string.movies))
         },
         actions = {
 

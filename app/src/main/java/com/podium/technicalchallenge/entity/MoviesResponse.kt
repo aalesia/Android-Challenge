@@ -7,10 +7,3 @@ data class MoviesResponse(
 data class Movies(
     val movies: List<MovieEntity>
 )
-
-data class MovieEntity(
-    val id: Int,
-    val title: String,
-    val releaseDate: String,
-    val posterPath: String
-)
