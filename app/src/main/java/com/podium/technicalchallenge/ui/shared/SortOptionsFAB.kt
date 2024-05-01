@@ -1,6 +1,5 @@
 package com.podium.technicalchallenge.ui.shared
 
-import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.podium.technicalchallenge.R
+import com.podium.technicalchallenge.enums.SortOption
 
 @Composable
 fun SortOptionsFAB(
@@ -52,13 +52,4 @@ fun SortOptionsFAB(
             )
         }
     }
-}
-
-enum class SortOption(val displayName: (Context) -> String) {
-    TITLE(displayName = { context -> context.getString(R.string.title_asc) }),
-    TITLE_DESC(displayName = { context -> context.getString(R.string.title_desc) }),
-    RELEASE_DATE(displayName = { context -> context.getString(R.string.release_date_asc) }),
-    RELEASE_DATE_DESC(displayName = { context -> context.getString(R.string.release_date_desc) }),
-    RATING(displayName = { context -> context.getString(R.string.rating_asc) }),
-    RATING_DESC(displayName = { context -> context.getString(R.string.rating_desc) });
 }
