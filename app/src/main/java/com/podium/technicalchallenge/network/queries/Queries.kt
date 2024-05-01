@@ -10,7 +10,7 @@ object Queries {
             releaseDate
             posterPath
             voteAverage
-            overview
+            popularity
           }
         }
         """
@@ -24,7 +24,7 @@ object Queries {
             releaseDate
             posterPath
             voteAverage
-            overview
+            popularity
           }
         }
         """
@@ -38,7 +38,7 @@ object Queries {
             releaseDate
             posterPath
             voteAverage
-            overview
+            popularity
           }
         }
         """
@@ -60,6 +60,7 @@ object Queries {
             popularity
             posterPath
             voteAverage
+            popularity
             overview
             genres
             cast {

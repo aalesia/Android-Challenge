@@ -64,9 +64,6 @@ fun GenreAppBar(navController: NavController, genre: String) {
             IconButton(onClick = { navController.popBackStack() }) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
-        },
-        actions = {
-
         }
     )
 }

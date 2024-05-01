@@ -72,6 +72,13 @@ private fun MovieItem(
                     start = dimensionResource(id = R.dimen.horizontal_margin)
                 )
             )
+            Text(
+                text = stringResource(R.string.popularity, movie.popularity),
+                style = MaterialTheme.typography.body2,
+                modifier = Modifier.padding(
+                    start = dimensionResource(id = R.dimen.horizontal_margin)
+                )
+            )
         }
     }
 }

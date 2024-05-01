@@ -11,13 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class DetailsViewModel : ViewModel() {
-    private val _movie = MutableStateFlow(MovieEntity(0, "", "", "", 0f, ""))
+    private val _movie = MutableStateFlow(MovieEntity(0, "", "", "", 0f, 0f))
     val movie: StateFlow<MovieEntity> = _movie
 
     fun getMovie(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val movie = Repo.getInstance().getMovie(id)
-            Log.d("GenreViewModel", "movie=$movie")
+            Log.d("DetailsViewModel", "movie=$movie")
             _movie.value = movie
         }
     }

@@ -9,5 +9,7 @@ enum class SortOption(val displayName: (Context) -> String) {
     RELEASE_DATE(displayName = { context -> context.getString(R.string.release_date_asc) }),
     RELEASE_DATE_DESC(displayName = { context -> context.getString(R.string.release_date_desc) }),
     RATING(displayName = { context -> context.getString(R.string.rating_asc) }),
-    RATING_DESC(displayName = { context -> context.getString(R.string.rating_desc) });
+    RATING_DESC(displayName = { context -> context.getString(R.string.rating_desc) }),
+    POPULARITY(displayName = { context -> context.getString(R.string.popularity_asc) }),
+    POPULARITY_DESC(displayName = { context -> context.getString(R.string.popularity_desc) });
 }

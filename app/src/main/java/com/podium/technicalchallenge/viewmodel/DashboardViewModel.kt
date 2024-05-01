@@ -22,7 +22,7 @@ class DashboardViewModel : ViewModel() {
     fun getMovies() {
         viewModelScope.launch(Dispatchers.IO) {
             val movies = Repo.getInstance().getMovies()
-            Log.d("DemoViewModel", "movies=$movies")
+            Log.d("DashboardViewModel", "movies=$movies")
             _movies.value = movies
         }
     }
@@ -40,7 +40,7 @@ class DashboardViewModel : ViewModel() {
     fun getTop5Movies() {
         viewModelScope.launch(Dispatchers.IO) {
             val movies = Repo.getInstance().getMovies(top5 = true)
-            Log.d("DemoViewModel", "movies=$movies")
+            Log.d("DashboardViewModel", "movies=$movies")
             _top5Movies.value = movies
         }
     }
@@ -51,7 +51,7 @@ class DashboardViewModel : ViewModel() {
     fun getGenres() {
         viewModelScope.launch(Dispatchers.IO) {
             val genres = Repo.getInstance().getGenres()
-            Log.d("DemoViewModel", "genres=$genres")
+            Log.d("DashboardViewModel", "genres=$genres")
             _genres.value = genres
         }
     }

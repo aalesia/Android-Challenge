@@ -12,6 +12,8 @@ class SortMoviesUseCase {
             SortOption.RELEASE_DATE_DESC -> movies.sortedByDescending { it.releaseDate }
             SortOption.RATING -> movies.sortedBy { it.voteAverage }
             SortOption.RATING_DESC -> movies.sortedByDescending { it.voteAverage }
+            SortOption.POPULARITY -> movies.sortedBy { it.popularity }
+            SortOption.POPULARITY_DESC -> movies.sortedByDescending { it.popularity }
         }
     }
 }

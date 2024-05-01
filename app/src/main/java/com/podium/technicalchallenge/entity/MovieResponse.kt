@@ -14,7 +14,8 @@ data class MovieEntity(
     val releaseDate: String,
     val posterPath: String,
     val voteAverage: Float,
-    val overview: String,
+    val popularity: Float,
+    val overview: String? = null,
     val genres: List<String>? = null,
     val cast: List<CastEntity>? = null,
     val director: DirectorEntity? = null

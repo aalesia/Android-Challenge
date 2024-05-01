@@ -117,9 +117,6 @@ fun MoviesAppBar() {
     TopAppBar(
         title = {
             Text(text = stringResource(R.string.movies))
-        },
-        actions = {
-
         }
     )
 }

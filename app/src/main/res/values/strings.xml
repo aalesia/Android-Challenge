@@ -9,6 +9,7 @@
     <string name="movies">Movies</string>
     <string name="details">Details</string>
     <string name="rating">Rating: %1$s</string>
+    <string name="popularity">Popularity: %1$s</string>
     <string name="genres">Genres: %1$s</string>
     <string name="director">Director: %1$s</string>
     <string name="sort">Sort</string>
@@ -19,4 +20,6 @@
     <string name="release_date_desc">Release Date Desc</string>
     <string name="rating_asc">Rating Asc</string>
     <string name="rating_desc">Rating Desc</string>
+    <string name="popularity_asc">Popularity Asc</string>
+    <string name="popularity_desc">Popularity Desc</string>
 </resources>
