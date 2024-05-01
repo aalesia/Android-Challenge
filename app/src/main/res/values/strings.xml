@@ -11,4 +11,12 @@
     <string name="rating">Rating: %1$s</string>
     <string name="genres">Genres: %1$s</string>
     <string name="director">Director: %1$s</string>
+    <string name="sort">Sort</string>
+    <string name="release_date">Release Date: %1$s</string>
+    <string name="title_asc">Title Asc</string>
+    <string name="title_desc">Title Desc</string>
+    <string name="release_date_asc">Release Date Asc</string>
+    <string name="release_date_desc">Release Date Desc</string>
+    <string name="rating_asc">Rating Asc</string>
+    <string name="rating_desc">Rating Desc</string>
 </resources>

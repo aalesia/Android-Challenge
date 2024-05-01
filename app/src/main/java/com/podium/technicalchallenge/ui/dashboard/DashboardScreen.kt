@@ -19,17 +19,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.podium.technicalchallenge.R
-import com.podium.technicalchallenge.viewmodel.DemoViewModel
+import com.podium.technicalchallenge.viewmodel.DashboardViewModel
 import com.podium.technicalchallenge.entity.MovieEntity
 import com.podium.technicalchallenge.ui.navigation.Screen
 import com.podium.technicalchallenge.ui.shared.MoviesContent
+import com.podium.technicalchallenge.ui.shared.SortOptionsFAB
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun DashboardScreen(navController: NavController) {
-    val viewModel: DemoViewModel = viewModel()
+    val viewModel: DashboardViewModel = viewModel()
     val coroutineScope = rememberCoroutineScope()
     val tabs = listOf(
         stringResource(R.string.movies_top_5),
@@ -40,6 +41,7 @@ fun DashboardScreen(navController: NavController) {
     val movies = remember { mutableStateOf(emptyList<MovieEntity>()) }
     val top5Movies = remember { mutableStateOf(emptyList<MovieEntity>()) }
     val genres = remember { mutableStateOf(emptyList<String>()) }
+    val fabVisible = remember { mutableStateOf(false) }
 
     LaunchedEffect(key1 = true) {
         viewModel.getMovies()
@@ -65,8 +67,17 @@ fun DashboardScreen(navController: NavController) {
         }
     }
 
+    LaunchedEffect(pagerState.currentPage) {
+        fabVisible.value = pagerState.currentPage == 2
+    }
+
     Scaffold(
         topBar = { MoviesAppBar() },
+        floatingActionButton = {
+            SortOptionsFAB(fabVisible = fabVisible) { option ->
+                viewModel.sortMovies(option)
+            }
+        },
         content = {
             Column {
                 TabRow(selectedTabIndex = pagerState.currentPage) {

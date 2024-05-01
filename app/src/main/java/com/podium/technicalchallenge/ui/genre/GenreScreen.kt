@@ -17,6 +17,7 @@ import androidx.navigation.NavController
 import com.podium.technicalchallenge.entity.MovieEntity
 import com.podium.technicalchallenge.ui.navigation.Screen
 import com.podium.technicalchallenge.ui.shared.MoviesContent
+import com.podium.technicalchallenge.ui.shared.SortOptionsFAB
 import com.podium.technicalchallenge.viewmodel.GenreViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -24,6 +25,7 @@ import com.podium.technicalchallenge.viewmodel.GenreViewModel
 fun GenreScreen(navController: NavController, genre: String) {
     val viewModel: GenreViewModel = viewModel()
     val movies = remember { mutableStateOf(emptyList<MovieEntity>()) }
+    val fabVisible = remember { mutableStateOf(true) }
 
     LaunchedEffect(key1 = true) {
         viewModel.getMovies(genre)
@@ -36,7 +38,14 @@ fun GenreScreen(navController: NavController, genre: String) {
     }
 
     Scaffold(
-        topBar = { GenreAppBar(navController, genre) },
+        topBar = {
+            GenreAppBar(navController, genre)
+        },
+        floatingActionButton = {
+            SortOptionsFAB(fabVisible = fabVisible) { option ->
+                viewModel.sortMovies(option)
+            }
+        },
         content = {
             MoviesContent(movies.value) { movie ->
                 navController.navigate(Screen.Details.withId(movie.id))

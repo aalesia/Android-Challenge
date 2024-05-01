@@ -79,6 +79,13 @@ fun DetailsScreen(navController: NavController, movieId: Int) {
                             )
                         )
                         Text(
+                            text = stringResource(R.string.release_date, movie.value.releaseDate),
+                            style = MaterialTheme.typography.body2,
+                            modifier = Modifier.padding(
+                                start = dimensionResource(id = R.dimen.horizontal_margin)
+                            )
+                        )
+                        Text(
                             text = stringResource(R.string.rating, movie.value.voteAverage),
                             style = MaterialTheme.typography.body2,
                             modifier = Modifier.padding(

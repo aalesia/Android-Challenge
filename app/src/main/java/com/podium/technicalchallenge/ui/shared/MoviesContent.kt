@@ -59,9 +59,8 @@ private fun MovieItem(
                 )
             )
             Text(
-                text = movie.overview,
+                text = stringResource(R.string.release_date, movie.releaseDate),
                 style = MaterialTheme.typography.body2,
-                maxLines = 4,
                 modifier = Modifier.padding(
                     start = dimensionResource(id = R.dimen.horizontal_margin)
                 )
